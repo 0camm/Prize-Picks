@@ -7,20 +7,14 @@
   <style>
     :root {
       --bg: #0b0714;
-      --bg-2: #120b22;
-      --card: rgba(19, 14, 34, 0.82);
-      --card-2: rgba(29, 20, 54, 0.9);
       --stroke: rgba(255, 255, 255, 0.08);
       --text: #f6f3ff;
       --muted: rgba(246, 243, 255, 0.72);
       --purple: #7c22ff;
       --purple-2: #a94cff;
-      --purple-3: #c58bff;
       --green: #8cff2d;
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
       --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
     }
 
     * {
@@ -48,7 +42,6 @@
       background:
         linear-gradient(120deg, rgba(255,255,255,0.05), transparent 22%, transparent 78%, rgba(255,255,255,0.04)),
         linear-gradient(180deg, rgba(255,255,255,0.03), transparent 18%, transparent 82%, rgba(255,255,255,0.02));
-      mix-blend-mode: screen;
       opacity: 0.55;
     }
 
@@ -56,6 +49,8 @@
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
       padding: 24px 0 36px;
+      position: relative;
+      z-index: 1;
     }
 
     .topbar {
@@ -456,9 +451,9 @@
       </div>
 
       <div class="chip-row">
-        <div class="chip">Theme: <strong>Purple</strong></div>
-        <div class="chip">Status: <strong>Open</strong></div>
-        <div class="chip">Form: <strong>Embedded</strong></div>
+        <div class="chip">Today <strong id="chipDate">Live</strong></div>
+        <div class="chip">Status <strong>Open</strong></div>
+        <div class="chip">Form <strong>Ready</strong></div>
       </div>
     </header>
 
@@ -467,7 +462,7 @@
         <div class="eyebrow"><span class="eyebrow-dot"></span> Submission Portal</div>
         <h2>Submit your picks through a clean, professional layout.</h2>
         <p class="sub">
-          A polished submission page designed for clarity, speed, and a premium mobile-first experience.
+          A simple submission page with a polished look and a direct form embed.
         </p>
 
         <div class="meta-grid">
@@ -480,7 +475,7 @@
             <div class="value">Google Form</div>
           </div>
           <div class="meta">
-            <div class="label">Experience</div>
+            <div class="label">Layout</div>
             <div class="value">Responsive</div>
           </div>
         </div>
@@ -490,7 +485,7 @@
         <div class="side-panel">
           <h3>Quick access</h3>
           <p>
-            Submit directly through the embedded form without leaving the page.
+            Use the form below to send in your picks.
           </p>
           <div class="date-pill">
             <span class="date-dot"></span>
@@ -499,15 +494,15 @@
         </div>
 
         <div class="side-panel">
-          <h3>Instructions</h3>
+          <h3>Live form</h3>
           <p>
-            Paste your Google Form embed link below and publish the page on your preferred platform.
+            The form is embedded directly on this page for easy access on desktop and mobile.
           </p>
         </div>
 
         <div class="cta">
-          <a href="#formSection">Open Submission Form →</a>
-          <small>Scroll down to complete your submission.</small>
+          <a href="#formSection">Open Form →</a>
+          <small>Scroll down to submit.</small>
         </div>
       </aside>
     </section>
@@ -522,7 +517,7 @@
         <div class="form-top">
           <div>
             <h4>Complete the form below</h4>
-            <p>Paste your Google Form embed link into the iframe.</p>
+            <p>Use the embedded form to submit your picks.</p>
           </div>
         </div>
 
@@ -561,6 +556,7 @@
     document.getElementById("dateText").textContent = dateShort;
     document.getElementById("dateValue").textContent = dateShort;
     document.getElementById("dateLong").textContent = dateLong;
+    document.getElementById("chipDate").textContent = "Live";
   </script>
 </body>
 </html>
